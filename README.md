@@ -11,8 +11,6 @@
 ## 핵심 기능
 
 - **QR 코드 기반 맵 인식**: 주차장 진입 시 QR코드를 통해 주차장 맵 정보 획득
-- **LiDAR SLAM 기반 정밀 맵핑**: 지하주차장 환경의 고정밀 맵 생성
-- **다중 센서 퓨전 위치 추정**: 휠 엔코더, IMU, LiDAR 데이터 기반 위치 추정
 - **D* 알고리즘 기반 경로 계획**: 동적 환경에서의 효율적 재계획 지원
 - **LQR 기반 경로 추종 제어**: 5cm 이내의 경로 추종 정확도 달성
 
@@ -48,7 +46,7 @@ git clone https://github.com/patrick-kook/Capstone-Design.git
 
 # 2. 의존성 패키지 설치
 sudo apt-get update
-sudo apt-get install ros-noetic-tf2-sensor-msgs ros-noetic-navigation ros-noetic-slam-toolbox ros-noetic-robot-localization
+sudo apt-get install ros-noetic-tf2-sensor-msgs ros-noetic-navigation ros-noetic-robot-localization
 
 # 3. 캐킨 워크스페이스 빌드
 cd ~/catkin_ws
@@ -61,17 +59,9 @@ source ~/catkin_ws/devel/setup.bash
 ## 실행 방법
 
 ```bash
-# 1. 시뮬레이션 환경 실행
+
 roslaunch sim_env move_base.launch
 
-# 2. 실제 차량 실행
-roslaunch sim_env real_vehicle.launch
-
-# 3. 맵핑 모드 실행
-roslaunch sim_env mapping.launch
-
-# 4. 차량 호출 명령 전송
-rosservice call /summon_vehicle "destination: 'exit'"
 ```
 
 ## 프로젝트 구조
